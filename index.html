@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>博拉集团（Aditya Birla Group）粘胶长丝+粘胶短纤全球产能梳理</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f6f8; color: #1a1a2e; line-height: 1.6; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+  h1 { font-size: 26px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+  .update-time { display: inline-block; background: #e8f4fd; color: #1a73e8; font-size: 12px; padding: 3px 10px; border-radius: 12px; margin-left: 10px; }
+
+  /* 板块卡片 */
+  .section { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .section-title { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; padding-bottom: 12px; border-bottom: 2px solid #f0f0f0; display: flex; align-items: center; gap: 8px; }
+  .section-title .badge { font-size: 12px; font-weight: 500; padding: 2px 10px; border-radius: 20px; }
+  .badge-blue { background: #e8f4fd; color: #1a73e8; }
+  .badge-red { background: #fde8e8; color: #d32f2f; }
+  .badge-orange { background: #fff3e0; color: #f57c00; }
+  .badge-green { background: #e8f5e9; color: #2e7d32; }
+  .section-note { font-size: 13px; color: #888; margin-bottom: 16px; }
+
+  /* 表格 */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { background: #f8f9fb; color: #555; font-weight: 600; padding: 11px 14px; text-align: left; border-bottom: 2px solid #e8e8e8; white-space: nowrap; }
+  td { padding: 11px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  tr:hover td { background: #fafbff; }
+  tr:last-child td { border-bottom: none; }
+
+  /* 状态标签 */
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 500; white-space: nowrap; }
+  .tag-active { background: #e8f5e9; color: #2e7d32; }
+  .tag-shutdown { background: #fde8e8; color: #c62828; }
+  .tag-pressure { background: #fff3e0; color: #e65100; }
+  .tag-expand { background: #e3f2fd; color: #1565c0; }
+  .tag-unknown { background: #f5f5f5; color: #757575; }
+
+  /* 数字高亮 */
+  .num { font-weight: 700; color: #1a73e8; }
+  .num-red { font-weight: 700; color: #d32f2f; }
+  .num-orange { font-weight: 700; color: #f57c00; }
+
+  /* 来源区块 */
+  .source-block { margin-top: 24px; }
+  .source-title { font-size: 14px; font-weight: 600; color: #555; margin-bottom: 10px; }
+  .source-list { display: flex; flex-direction: column; gap: 6px; }
+  .source-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #666; }
+  .source-num { display: inline-block; min-width: 22px; height: 22px; background: #e8f4fd; color: #1a73e8; border-radius: 50%; font-size: 11px; font-weight: 700; text-align: center; line-height: 22px; }
+  .source-link { color: #1a73e8; text-decoration: none; }
+  .source-link:hover { text-decoration: underline; }
+
+  /* 备注 */
+  .note-box { background: #fffde7; border-left: 4px solid #ffc107; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 13px; color: #555; margin-top: 16px; }
+
+  /* 动态事件时间线 */
+  .timeline { position: relative; padding-left: 20px; }
+  .timeline::before { content: ""; position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: #e0e0e0; }
+  .tl-item { position: relative; padding: 0 0 18px 20px; }
+  .tl-item::before { content: ""; position: absolute; left: -15px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: #1a73e8; border: 2px solid #fff; box-shadow: 0 0 0 2px #1a73e8; }
+  .tl-item.red::before { background: #d32f2f; box-shadow: 0 0 0 2px #d32f2f; }
+  .tl-item.orange::before { background: #f57c00; box-shadow: 0 0 0 2px #f57c00; }
+  .tl-date { font-size: 12px; color: #999; margin-bottom: 2px; }
+  .tl-title { font-size: 14px; font-weight: 600; color: #1a1a2e; }
+  .tl-desc { font-size: 13px; color: #666; margin-top: 3px; }
+  .tl-source { font-size: 12px; color: #1a73e8; margin-top: 4px; }
+
+  /* 截图预览区 */
+  .screenshots { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; }
+  .evidence-grid { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 16px; }
+  .evidence-card { border: 1px solid #e5e8ef; border-radius: 10px; overflow: hidden; background: #fff; }
+  .evidence-meta { padding: 14px 16px; background: #f8f9fb; border-bottom: 1px solid #e5e8ef; }
+  .evidence-meta b { display: block; font-size: 14px; color: #1a1a2e; margin-bottom: 4px; }
+  .evidence-meta p { font-size: 13px; color: #666; margin-bottom: 6px; }
+  .evidence-meta a { color: #1a73e8; font-size: 12px; word-break: break-all; text-decoration: none; }
+  .evidence-meta a:hover { text-decoration: underline; }
+  .evidence-card img { width: 100%; display: block; height: auto; object-fit: contain; background: #fafafa; }
+
+  /* 全局格局统计 */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .stat-card { background: #f8f9fb; border-radius: 10px; padding: 16px 20px; }
+  .stat-card .label { font-size: 13px; color: #888; margin-bottom: 4px; }
+  .stat-card .value { font-size: 24px; font-weight: 700; color: #1a73e8; }
+  .stat-card .unit { font-size: 13px; color: #aaa; margin-left: 4px; }
+
+  @media (max-width: 768px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>博拉集团（Aditya Birla Group）粘胶长丝+粘胶短纤全球产能梳理</h1>
+  <div class="subtitle">整理日期：2026年5月18日 &nbsp;|&nbsp; 信息覆盖：2024-2026年 &nbsp;|&nbsp; 数据均附原始链接、说明文字与截图证据</div>
+
+  <!-- ============ 全局格局 ============ -->
+  <div class="section">
+    <div class="section-title">
+      一、全球格局概览
+      <span class="badge badge-blue">统计截面</span>
+    </div>
+    <div class="section-note">以下将博拉集团纤维素纤维业务拆成两条主线：粘胶长丝（VFY/CFY）和粘胶短纤（VSF/CSF）。两者同属再生纤维素纤维，但产品、工艺和产能口径不同。</div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="label">博拉粘胶长丝总产能</div>
+        <div class="value">48<span class="unit">千吨/年</span></div>
+      </div>
+      <div class="stat-card">
+        <div class="label">博拉印度粘胶短纤产能</div>
+        <div class="value">824<span class="unit">千吨/年</span></div>
+      </div>
+      <div class="stat-card">
+        <div class="label">博拉全球粘胶短纤产能</div>
+        <div class="value">约126-132<span class="unit">万吨/年</span></div>
+      </div>
+      <div class="stat-card">
+        <div class="label">粘胶长丝全球排名</div>
+        <div class="value">第3<span class="unit">大</span></div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>集团主体</td><td>Aditya Birla Group → Grasim Industries Limited（印度上市公司）</td></tr>
+        <tr><td>粘胶长丝（VFY/CFY）</td><td>品牌 Raysil®（前身 RayOne），产能集中于印度 Shahad 与 Veraval 两地，官方披露合计 48 千吨/年。</td></tr>
+        <tr><td>粘胶短纤（VSF/CSF）</td><td>品牌体系包括 Birla Cellulose/Liva 等；印度官方披露 824 千吨/年，海外布局包括印尼 PT Indo Bharat Rayon、泰国 Thai Rayon、中国博拉经纬纤维等。</td></tr>
+        <tr><td>中国市场地位</td><td>中国是全球最大粘胶长丝生产国；博拉长丝业务受中国低价进口压制，因而参与印度对华 75D 以上粘胶长丝反倾销申请。</td></tr>
+        <tr><td>关键口径</td><td>粘胶长丝（VFY）不能与粘胶短纤（VSF）混算；本文分别列示，再汇总为博拉纤维素纤维全球布局。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ 表一：VFY工厂产能 ============ -->
+  <div class="section">
+    <div class="section-title">
+      二、博拉粘胶长丝（VFY）工厂产能明细
+      <span class="badge badge-blue">印度在产</span>
+    </div>
+    <div class="section-note">博拉集团粘胶长丝业务全部集中在印度，由Grasim Industries旗下两个生产单元承载，品牌统一为Raysil®。</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>工厂名称</th>
+          <th>生产主体</th>
+          <th>地点</th>
+          <th>产能（千吨/年）</th>
+          <th>纺纱工艺</th>
+          <th>主要产品系列</th>
+          <th>当前状态</th>
+          <th>来源</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Indian Rayon</b><br>（韦拉瓦尔工厂）</td>
+          <td>Grasim Industries Limited<br>（自营单元）</td>
+          <td>Veraval，古吉拉特邦，印度</td>
+          <td><span class="num">约19.8-21</span></td>
+          <td>PSY（锅纺）、CSY（连续纺）、SSY（筒管纺）</td>
+          <td>Raysil Prim（SSY）、Raysil Shyne（PSY）、Raysil Supra（CSY）</td>
+          <td><span class="tag tag-active">正常在产</span></td>
+          <td>证据02 / 证据03 / 证据07</td>
+        </tr>
+        <tr>
+          <td><b>Century Rayon</b><br>（沙哈德工厂）</td>
+          <td>Century Textiles & Industries（CTIL）所有，<b>Grasim托管运营</b>（自2018年2月起）</td>
+          <td>Shahad，马哈拉施特拉邦，印度</td>
+          <td><span class="num">27.5</span></td>
+          <td>PSY（锅纺）、CSY（连续纺）</td>
+          <td>Raysil Shyne、Raysil Supra；另产高强力轮胎帘子线（TC）</td>
+          <td><span class="tag tag-active">正常在产</span></td>
+          <td>证据02 / 证据03 / 证据08</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" style="font-weight:600; background:#f8f9fb;">合计（印度VFY）</td>
+          <td colspan="5" style="font-weight:700; color:#1a73e8; background:#f8f9fb;">约 48 千吨/年（4.8万吨/年）</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="note-box">
+      注：Grasim官网明确披露：粘胶长丝（VFY）总产能48千吨/年，为印度最大粘胶长丝生产商，全球第三。官方Raysil®品牌手册确认生产地点为Shahad（马哈拉施特拉邦）和Veraval（古吉拉特邦）双厂。
+    </div>
+  </div>
+
+  <!-- ============ 表二：VSF工厂产能 ============ -->
+  <div class="section">
+    <div class="section-title">
+      三、博拉粘胶短纤（VSF/CSF）工厂产能明细
+      <span class="badge badge-green">全球布局</span>
+    </div>
+    <div class="section-note">粘胶短纤是博拉更大的纤维素纤维主业。印度产能采用Grasim官方口径；海外产能采用Canopy/公开来源口径，因年份与统计边界不同，合计以区间表达。</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>国家/地区</th>
+          <th>工厂/公司</th>
+          <th>地点</th>
+          <th>产品口径</th>
+          <th>产能（千吨/年）</th>
+          <th>状态/说明</th>
+          <th>核心证据</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4">印度</td>
+          <td><b>Grasim Industries - Nagda</b></td>
+          <td>Madhya Pradesh, India</td>
+          <td>粘胶短纤（VSF）/Excel纤维</td>
+          <td><span class="num">约156-161</span><br><span style="font-size:12px;color:#888;">另有Excel约16.4</span></td>
+          <td><span class="tag tag-active">在产</span> Grasim印度CSF四厂之一</td>
+          <td>证据10（Canopy产能表）</td>
+        </tr>
+        <tr>
+          <td><b>Grasim Industries - Kharach</b></td>
+          <td>Gujarat, India</td>
+          <td>粘胶短纤（VSF）/Excel纤维</td>
+          <td><span class="num">约173-176</span><br><span style="font-size:12px;color:#888;">另有Excel约36.5</span></td>
+          <td><span class="tag tag-active">在产</span> 差别化纤维重要基地</td>
+          <td>证据10（Canopy产能表）</td>
+        </tr>
+        <tr>
+          <td><b>Grasim Industries - Vilayat</b></td>
+          <td>Gujarat, India</td>
+          <td>粘胶短纤（VSF）</td>
+          <td><span class="num">约398-438</span></td>
+          <td><span class="tag tag-active">在产</span> 印度最大单体VSF基地；另有扩产/提效项目</td>
+          <td>证据10（Canopy产能表）</td>
+        </tr>
+        <tr>
+          <td><b>Harihar Polyfibers</b></td>
+          <td>Karnataka, India</td>
+          <td>粘胶短纤（VSF）</td>
+          <td><span class="num">约74-96</span></td>
+          <td><span class="tag tag-active">在产</span> 同地推进Lyocell一期55千吨/年项目</td>
+          <td>证据03 / 证据10</td>
+        </tr>
+        <tr>
+          <td>中国</td>
+          <td><b>Birla Jingwei Fibres</b><br>博拉经纬纤维</td>
+          <td>湖北襄阳，中国</td>
+          <td>粘胶短纤（VSF）</td>
+          <td><span class="num">约70-88</span></td>
+          <td><span class="tag tag-active">在产</span> 中国基地，服务本地高端粘胶短纤市场</td>
+          <td>证据01 / 证据10</td>
+        </tr>
+        <tr>
+          <td>印尼</td>
+          <td><b>PT Indo Bharat Rayon</b></td>
+          <td>Purwakarta, Indonesia</td>
+          <td>粘胶短纤（VSF）</td>
+          <td><span class="num">约212</span></td>
+          <td><span class="tag tag-active">在产</span> 东南亚核心粘胶短纤基地</td>
+          <td>证据01 / 证据10</td>
+        </tr>
+        <tr>
+          <td>泰国</td>
+          <td><b>Thai Rayon Public Co., Ltd.</b></td>
+          <td>Ang Thong / Amphur Muang, Thailand</td>
+          <td>粘胶短纤（VSF）</td>
+          <td><span class="num">约140-151</span></td>
+          <td><span class="tag tag-active">在产</span> 泰国粘胶短纤基地</td>
+          <td>证据01 / 证据10</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" style="font-weight:600; background:#f8f9fb;">合计（博拉全球VSF/CSF）</td>
+          <td colspan="3" style="font-weight:700; color:#1a73e8; background:#f8f9fb;">约 1,257-1,319 千吨/年；Canopy披露粘胶纤维总产能超过130万吨/年</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="note-box">
+      口径说明：Grasim官网披露印度粘胶短纤（CSF）四地合计824千吨/年；Canopy按工厂列示的VSF口径略高，且包含不同年份/产品边界，因此本文用区间表达。无论采用哪一口径，结论一致：粘胶短纤是博拉更大的全球化纤维业务，规模远大于粘胶长丝。
+    </div>
+  </div>
+
+  <!-- ============ 表二：中国信源关于印度博拉产能描述 ============ -->
+  <div class="section">
+    <div class="section-title">
+      四、中国行业信源对博拉粘胶长丝产能的描述汇总
+      <span class="badge badge-orange">市场视角</span>
+    </div>
+    <div class="section-note">以下为中国粘胶长丝行业分析文章中提及博拉印度产能的描述，供交叉验证。</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>信息来源</th>
+          <th>时间</th>
+          <th>对博拉VFY产能的描述</th>
+          <th>对博拉经营状态的描述</th>
+          <th>可信度评级</th>
+          <th>证据编号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>新浪财经（机构分析转载）<br>题：《头部企业部分产能停产，粘胶长丝行情趋强？》</td>
+          <td>2025年9月23日</td>
+          <td>约<b>4万多吨，不到5万吨</b>（即约4~5万吨）；德国恩卡已<b>全部关闭</b>，博拉为海外唯一产能</td>
+          <td>正常运营；成本高于中国1~2万元/吨；印度市场需求旺盛但倾向从中国进口；出口美国有限；产品偏中低端</td>
+          <td>★★★★（机构观点，细节较具体）</td>
+          <td>证据06</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ 表三：全球历史产能对比 ============ -->
+  <div class="section">
+    <div class="section-title">
+      五、全球粘胶长丝产能格局（含历史关闭信息）
+      <span class="badge badge-red">重点：停产关厂</span>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>国家/地区</th>
+          <th>企业</th>
+          <th>产能规模</th>
+          <th>最新状态</th>
+          <th>备注</th>
+          <th>来源</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff9f9;">
+          <td>德国</td>
+          <td><b>Enka GmbH（恩卡）</b></td>
+          <td>未公开（曾为欧洲唯一VFY产能）</td>
+          <td><span class="tag tag-shutdown">已全部关闭</span></td>
+          <td>关闭时间不晚于2025年；是欧洲粘胶长丝产能退出的标志性事件。Indian Rayon曾从恩卡引进SSY筒管纺技术，双方存在技术渊源</td>
+          <td>证据06（新浪财经）</td>
+        </tr>
+        <tr>
+          <td>印度</td>
+          <td><b>Grasim Industries / Indian Rayon + Century Rayon</b></td>
+          <td>约48千吨/年（4.8万吨/年）</td>
+          <td><span class="tag tag-pressure">在产·受价格压制</span></td>
+          <td>FY2025盈利能力受压（销量同比+3%，但价格realisation under pressure），主因中国低价进口产品；近期未公告停产</td>
+          <td>证据02 / 证据03 / 证据05 / 证据07</td>
+        </tr>
+        <tr>
+          <td>中国</td>
+          <td>新乡化纤、吉林化纤、宜宾海丝特（斯利亚）、湖北金环</td>
+          <td>约25~28万吨/年（占全球约90%）</td>
+          <td><span class="tag tag-active">主体在产</span><br><span class="tag tag-shutdown" style="margin-top:4px;display:inline-block;">部分临时停产</span></td>
+          <td>新乡化纤2025年10月起停产90天检修（涉及3.12万吨产能），属计划性改造；其余企业正常运营。工信部严禁新建产能，新增极少</td>
+          <td>证据06（新浪财经）</td>
+        </tr>
+        <tr>
+          <td>印度尼西亚</td>
+          <td>PT Indo Bharat Rayon（IBR）</td>
+          <td>212千吨/年（粘胶短纤）</td>
+          <td><span class="tag tag-active">正常在产</span></td>
+          <td>生产粘胶短纤维（VSF），不计入粘胶长丝产能，但计入博拉粘胶短纤全球布局</td>
+          <td>证据10（Canopy报告）</td>
+        </tr>
+        <tr>
+          <td>泰国</td>
+          <td>Thai Rayon</td>
+          <td>约140-151千吨/年（粘胶短纤）</td>
+          <td><span class="tag tag-active">正常在产</span></td>
+          <td>生产粘胶短纤维（VSF），不计入粘胶长丝产能，但计入博拉粘胶短纤全球布局</td>
+          <td>（Thai Rayon官网）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      重要区分：博拉集团旗下的印尼PT Indo Bharat Rayon（IBR）和泰国Thai Rayon，均为<b>粘胶短纤维（VSF）</b>生产商，不生产粘胶长丝（VFY）。本页将其纳入“博拉粘胶短纤全球布局”，但不计入“博拉粘胶长丝”产能。博拉的粘胶长丝业务集中于印度Grasim两厂（合计48千吨/年）。
+    </div>
+  </div>
+
+  <!-- ============ 表四：近期经营动态（时间线） ============ -->
+  <div class="section">
+    <div class="section-title">
+      六、博拉粘胶长丝+粘胶短纤近期经营动态时间线
+      <span class="badge badge-orange">2024–2026</span>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2018年2月</div>
+        <div class="tl-title">Grasim接管Century Rayon运营权</div>
+        <div class="tl-desc">Grasim收购对Century Rayon（属CTIL）的管理运营权，粘胶长丝总产能由此扩至48千吨/年，成为印度最大粘胶长丝生产商。</div>
+        <div class="tl-source">来源：证据02 Grasim官网 VFY业务页</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2023年10月 - 2024年3月</div>
+        <div class="tl-title">印度对华VFY发起新一轮反倾销调查（立案：2025年3月）</div>
+        <div class="tl-desc">调查申请人之一为Grasim Industries Limited（博拉集团旗下），倾销调查期：2023年10月-2024年9月。此举反映博拉积极运用贸易救济措施保护印度国内市场份额。</div>
+        <div class="tl-source">来源：证据09 北京市商务局 / 证据04 商务部贸易救济信息网（2026年3月终裁）</div>
+      </div>
+
+      <div class="tl-item red">
+        <div class="tl-date">2025年（时间不晚于9月）</div>
+        <div class="tl-title">德国恩卡（Enka）粘胶长丝产能全部关闭</div>
+        <div class="tl-desc">曾为欧洲唯一VFY生产商的德国Enka GmbH宣告彻底退出。至此，全球VFY产能仅余中国（约90%，25~28万吨）和印度博拉（约5%，4.8万吨）两大阵营，产能高度向中国集中。博拉此后成为中国以外唯一VFY产能。</div>
+        <div class="tl-source">来源：证据06 新浪财经行业分析（2025年9月23日）</div>
+      </div>
+
+      <div class="tl-item orange">
+        <div class="tl-date">FY2025全年（2024年4月-2025年3月）</div>
+        <div class="tl-title">博拉VFY（CFY）盈利能力受压</div>
+        <div class="tl-desc">Grasim FY2025财报显示：CFY（Cellulosic Fashion Yarn，即VFY）板块销量同比+3%，但价格realisation持续承压，主因中国低价进口产品大量涌入。整体纤维板块Q4FY25 EBITDA同比下滑36%，成本端（原材料上升）转嫁困难。</div>
+        <div class="tl-source">来源：证据03 Aditya Birla Group新闻稿（FY2025年度业绩发布）</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">FY2025全年（2024年4月-2025年3月）</div>
+        <div class="tl-title">粘胶短纤业务保持大体量运行，印度产能达824千吨/年</div>
+        <div class="tl-desc">Grasim官方粘胶短纤业务页披露，其印度四地Nagda、Kharach、Vilayat、Harihar合计CSF产能为824千吨/年，销售网络覆盖50多个国家。该业务规模明显大于粘胶长丝，是博拉纤维素纤维全球化布局的主体。</div>
+        <div class="tl-source">来源：证据10 Canopy产能表</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2025年至今</div>
+        <div class="tl-title">博拉VFY印度产能持续在产，无停产公告</div>
+        <div class="tl-desc">据2025年9月新浪财经分析：博拉印度产能（约4~5万吨）正常运营，印度本地需求旺盛，但印度客户因博拉价格高于中国1~2万元/吨，倾向从中国进口。博拉出口美国量不多，受美国对印加征关税影响有限。</div>
+        <div class="tl-source">来源：证据06 新浪财经</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2026年3月19日</div>
+        <div class="tl-title">印度对华VFY反倾销终裁：建议征税5年，税率386-1071美元/吨</div>
+        <div class="tl-desc">印度商工部发布终裁，对中国75旦以上VFY征收5年反倾销税（新乡化纤386$/t；吉林化纤667$/t；宜宾海丝特518$/t；其他中国企业统一1071$/t），申请方之一为Grasim Industries（博拉）。此举将显著限制中国VFY进入印度市场，有助于博拉保护本土市场份额。</div>
+        <div class="tl-source">来源：证据04 商务部贸易救济信息网 / 证据09 北京市商务局</div>
+      </div>
+
+      <div class="tl-item expand">
+        <div class="tl-date">2025年-2027年（在建）</div>
+        <div class="tl-title">博拉布局Lyocell新纤维：Harihar工厂新建55,000 TPA（第一期）</div>
+        <div class="tl-desc">Grasim董事会批准在卡纳塔克邦Harihar新建Lyocell纤维生产线，第一期55,000 TPA，远期规划110,000 TPA，预计2027年中投产。此为博拉在传统VFY市场受中国竞争压制背景下，向高端纤维素纤维升级转型的战略布局（Lyocell≠VFY，但同属纤维素纤维赛道）。</div>
+        <div class="tl-source">来源：证据03 Grasim FY2025年度财报新闻稿</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 表五：反倾销情况 ============ -->
+  <div class="section">
+    <div class="section-title">
+      七、印度对华粘胶长丝反倾销税率（2026年3月终裁）
+      <span class="badge badge-red">贸易政策</span>
+    </div>
+    <div class="section-note">申请方之一即Grasim Industries（博拉集团）。印度于2026年3月19日作出肯定性终裁，对中国75旦以上VFY征收5年反倾销税。</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>中国企业</th>
+          <th>税率（美元/吨）</th>
+          <th>折合人民币估算（约）</th>
+          <th>备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>新乡化纤股份有限公司</td>
+          <td><span class="num">386</span></td>
+          <td>约2,800元/吨</td>
+          <td>最低税率，单独裁决</td>
+        </tr>
+        <tr>
+          <td>宜宾海丝特纤维有限责任公司</td>
+          <td><span class="num">518</span></td>
+          <td>约3,800元/吨</td>
+          <td>单独裁决</td>
+        </tr>
+        <tr>
+          <td>高县长信线业有限责任公司</td>
+          <td><span class="num">518</span></td>
+          <td>约3,800元/吨</td>
+          <td>单独裁决</td>
+        </tr>
+        <tr>
+          <td>雷波海雅纺织材料科技有限公司</td>
+          <td><span class="num">518</span></td>
+          <td>约3,800元/吨</td>
+          <td>单独裁决</td>
+        </tr>
+        <tr>
+          <td>Jilin Chemical Fiber Co., Ltd.（吉林化纤）</td>
+          <td><span class="num">667</span></td>
+          <td>约4,900元/吨</td>
+          <td>单独裁决</td>
+        </tr>
+        <tr style="background:#fff3f3;">
+          <td><b>中国其他生产商（统一税率）</b></td>
+          <td><span class="num-red">1071</span></td>
+          <td>约7,900元/吨</td>
+          <td>未参与调查的中国企业，税率最高</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      排除范围：75旦（不含75旦以上）VFY；采用线轴纺纱技术生产的VFY；税号5401项下绣花线。征税有效期5年。
+    </div>
+  </div>
+
+  <!-- ============ 信息来源 ============ -->
+  <div class="section">
+    <div class="section-title">
+      八、固定证据索引（完整截图 + 原链接 + 说明）
+    </div>
+
+    <div class="section-note">以下证据卡统一包含：完整截图、原链接、说明文字。不再引用黑屏截图、被弹窗遮挡严重的截图或只截到页面顶部的图片。</div>
+
+    <div class="evidence-grid">
+      <div class="evidence-card">
+        <div class="evidence-meta">
+          <b>证据01：ChinaYarn 博拉页面</b>
+          <p>用户给定起点。该页将博拉纤维全球布局列在一起，包含印度、印尼、泰国、中国等基地；需注意其中大量内容是粘胶短纤（VSF）和浆粕/原料口径，不可直接等同于粘胶长丝。</p>
+          <a href="https://www.chinayarn.com/xianwei/birla/aboutbirla.html" target="_blank">https://www.chinayarn.com/xianwei/birla/aboutbirla.html</a>
+        </div>
+        <img src="sources/screenshots/01_chinayarn_birla_about.png" alt="ChinaYarn 博拉页面完整截图">
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-meta">
+          <b>证据02：Grasim 官方粘胶长丝（VFY）业务页</b>
+          <p>确认 Grasim 是印度最大粘胶长丝制造商与出口商、全球第三大粘胶长丝制造商；VFY 业务2017年并入Grasim，2018年接管Century Rayon后总产能增至48千吨/年，生产地点为Shahad和Veraval。</p>
+          <a href="https://www.grasim.com/about-us/our-businesses/cellulosic-fashion-yarn" target="_blank">https://www.grasim.com/about-us/our-businesses/cellulosic-fashion-yarn</a>
+        </div>
+        <img src="sources/screenshots/02_grasim_VFY_capacity.png" alt="Grasim 官方粘胶长丝业务页完整截图">
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-meta">
+          <b>证据03：Aditya Birla / Grasim FY2025 业绩新闻稿</b>
+          <p>披露纤维素时尚纱（CFY，即粘胶长丝业务口径）销量同比增长，但价格受中国低价进口压力；同时披露Harihar Lyocell一期55千吨/年项目，反映博拉向高端纤维素纤维升级。</p>
+          <a href="https://www.adityabirla.com/media/media-releases/grasim-q4fy25-and-fy2025-financial-results-creating-and-scaling-growth-engines-for-viksit-bharat" target="_blank">https://www.adityabirla.com/media/media-releases/grasim-q4fy25-and-fy2025-financial-results-creating-and-scaling-growth-engines-for-viksit-bharat</a>
+        </div>
+        <img src="sources/screenshots/03_grasim_FY2025_results.png" alt="Grasim FY2025 业绩新闻稿完整截图">
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-meta">
+          <b>证据04：中国商务部贸易救济信息网反倾销终裁</b>
+          <p>中国商务部贸易救济信息网转发印度对华75旦以上粘胶长丝反倾销终裁，列示不同中国企业税率，并说明产品排除范围。用于固定印度贸易救济政策和税率口径。</p>
+          <a href="https://cacs.mofcom.gov.cn/article/ajycs/ckys/202603/187572.html" target="_blank">https://cacs.mofcom.gov.cn/article/ajycs/ckys/202603/187572.html</a>
+        </div>
+        <img src="sources/screenshots/04_mofcom_antidumping_2026.png" alt="商务部贸易救济信息网印度对华粘胶长丝反倾销终裁完整截图">
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-meta">
+          <b>证据05：Aditya Birla / Grasim 纤维业务全球地位页面</b>
+          <p>用于交叉验证博拉在粘胶长丝和纤维素纤维业务中的全球地位、印度市场份额及出口范围，是公司/集团官网层面的辅助证据。</p>
+          <a href="https://www.grasim.com/about-us/our-businesses/cellulosic-fashion-yarn" target="_blank">https://www.grasim.com/about-us/our-businesses/cellulosic-fashion-yarn</a>
+        </div>
+        <img src="sources/screenshots/05_aditya_birla_VFY_global.png" alt="Aditya Birla / Grasim 纤维业务全球地位页面完整截图">
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-meta">
+          <b>证据06：新浪财经粘胶长丝市场分析</b>
+          <p>用于补充中国行业视角：文章提及博拉印度约4-5万吨粘胶长丝产能正常运营、德国Enka粘胶长丝产能关闭、中国低价产品对印度市场形成压力。该来源作为市场分析参考，不替代公司官方产能口径。</p>
+          <a href="https://finance.sina.com.cn/roll/2025-09-18/doc-infqkszt1453818.shtml" target="_blank">https://finance.sina.com.cn/roll/2025-09-18/doc-infqkszt1453818.shtml</a>
+        </div>
+        <img src="sources/screenshots/06_sina_VFY_market_2025Q3.png" alt="新浪财经粘胶长丝市场分析完整截图">
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-meta">
+          <b>证据07：Grasim Raysil 品牌/产品页面</b>
+          <p>用于交叉验证博拉粘胶长丝品牌 Raysil、产品系列与Veraval/Indian Rayon相关产能口径，辅助解释PSY、CSY、SSY等纺纱产品线。</p>
+          <a href="https://www.grasim.com/about-us/brands/raysil" target="_blank">https://www.grasim.com/about-us/brands/raysil</a>
+        </div>
+        <img src="sources/screenshots/07_grasim_raysil_brand.png" alt="Grasim Raysil 品牌页面完整截图">
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-meta">
+          <b>证据08：AMFII Century Rayon 页面</b>
+          <p>确认Century Rayon当前由Grasim Industries管理运营，年产能27,500吨，产品包括粘胶长丝、轮胎帘子线和相关化工品，是Shahad粘胶长丝产能的关键交叉验证。</p>
+          <a href="https://www.amfii.in/century-rayon" target="_blank">https://www.amfii.in/century-rayon</a>
+        </div>
+        <img src="sources/screenshots/08_amfii_century_rayon.png" alt="AMFII Century Rayon 页面完整截图">
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-meta">
+          <b>证据09：北京市商务局反倾销译文</b>
+          <p>记录印度对中国75旦以上粘胶长丝作出反倾销终裁，申请方包括印度人造纤维工业协会和Grasim Industries，建议对中国涉案产品征收5年反倾销税。</p>
+          <a href="https://sw.beijing.gov.cn/zt/mymcyd/ajyd/202604/t20260427_4615828.html" target="_blank">https://sw.beijing.gov.cn/zt/mymcyd/ajyd/202604/t20260427_4615828.html</a>
+        </div>
+        <img src="sources/screenshots/09_beijing_antidumping_filing.png" alt="北京市商务局印度对华粘胶长丝反倾销译文完整截图">
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-meta">
+          <b>证据10：Canopy 博拉集团风险档案与工厂产能表</b>
+          <p>用于固定粘胶短纤（VSF）全球产能口径：列示Nagda、Harihar、Kharach、Vilayat、中国博拉经纬、Thai Rayon、PT Indo Bharat Rayon等粘胶短纤工厂，并披露博拉粘胶纤维总产能超过130万吨/年。</p>
+          <a href="https://hotbutton.canopyplanet.org/" target="_blank">https://hotbutton.canopyplanet.org/</a>
+        </div>
+        <img src="sources/screenshots/10_canopy_birla_capacity.png" alt="Canopy 博拉集团产能表完整截图">
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 结论 ============ -->
+  <div class="section">
+    <div class="section-title">
+      九、核心结论
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>结论</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>博拉粘胶长丝产能</b></td>
+          <td>仅在印度，合计约48,000吨/年（Indian Rayon约19.8-21千吨/年 + Century Rayon 27.5千吨/年），无其他国家粘胶长丝产能。</td>
+        </tr>
+        <tr>
+          <td><b>博拉粘胶短纤产能</b></td>
+          <td>印度官方口径约824千吨/年；叠加印尼、中国、泰国等海外基地后，全球粘胶短纤/粘胶纤维产能约126-132万吨/年，是博拉更大的纤维素纤维主业。</td>
+        </tr>
+        <tr>
+          <td><b>当前经营状态</b></td>
+          <td>粘胶长丝两厂均正常在产，未发现2025-2026整厂停产公告；但FY2025盈利承压，主要受中国低价进口冲击。粘胶短纤全球基地整体仍在运营，Vilayat/Harihar等基地仍有升级项目。</td>
+        </tr>
+        <tr>
+          <td><b>贸易保护动作</b></td>
+          <td>博拉（Grasim）联合印度AMFII对中国75D以上粘胶长丝发起反倾销调查，2026年3月终裁，建议征收5年反倾销税（386-1071美元/吨），是博拉防御中国竞争的核心手段。</td>
+        </tr>
+        <tr>
+          <td><b>战略升级</b></td>
+          <td>博拉在传统粘胶长丝受压背景下，启动Harihar Lyocell新项目（一期55千吨/年，2027年中投产），向高端纤维素纤维转型。</td>
+        </tr>
+        <tr>
+          <td><b>口径提醒</b></td>
+          <td>印尼IBR、泰国Thai Rayon、中国博拉经纬等属于粘胶短纤（VSF）布局，应纳入“博拉粘胶短纤”版图，但不能计入“博拉粘胶长丝”产能。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="text-align:center; color:#bbb; font-size:12px; margin-top:24px; padding-bottom:24px;">
+    本文档基于公开可信来源整理 · 截图存档于 sources/screenshots/ · 整理日期 2026-05-18
+  </div>
+</div>
+</body>
+</html>
