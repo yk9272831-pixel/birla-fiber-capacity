@@ -23,6 +23,9 @@
   .section-note { font-size: 13px; color: #888; margin-bottom: 16px; }
 
   /* 表格 */
+  .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
+  .table-scroll table { min-width: 760px; }
+  .table-scroll::after { content: ""; display: block; height: 1px; }
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
   th { background: #f8f9fb; color: #555; font-weight: 600; padding: 11px 14px; text-align: left; border-bottom: 2px solid #e8e8e8; white-space: nowrap; }
   td { padding: 11px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
@@ -84,7 +87,20 @@
   .stat-card .value { font-size: 24px; font-weight: 700; color: #1a73e8; }
   .stat-card .unit { font-size: 13px; color: #aaa; margin-left: 4px; }
 
-  @media (max-width: 768px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 768px) {
+    .container { padding: 20px 12px; }
+    h1 { font-size: 22px; line-height: 1.3; }
+    .section { padding: 16px 12px; border-radius: 10px; }
+    .section-title { align-items: flex-start; flex-wrap: wrap; line-height: 1.35; }
+    .stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat-card { padding: 12px; }
+    .stat-card .value { font-size: 20px; }
+    .table-scroll { margin: 0 -4px; padding-bottom: 8px; }
+    .table-scroll table { min-width: 860px; }
+    .section-note::after { content: "（表格可左右滑动查看）"; color: #1a73e8; }
+    th, td { padding: 10px 12px; font-size: 13px; }
+    .evidence-card img { max-height: 70vh; object-fit: contain; }
+  }
 </style>
 </head>
 <body>
@@ -119,6 +135,7 @@
       </div>
     </div>
 
+    <div class="table-scroll">
     <table>
       <thead>
         <tr>
@@ -134,6 +151,7 @@
         <tr><td>关键口径</td><td>粘胶长丝（VFY）不能与粘胶短纤（VSF）混算；本文分别列示，再汇总为博拉纤维素纤维全球布局。</td></tr>
       </tbody>
     </table>
+    </div>
   </div>
 
   <!-- ============ 表一：VFY工厂产能 ============ -->
@@ -144,6 +162,7 @@
     </div>
     <div class="section-note">博拉集团粘胶长丝业务全部集中在印度，由Grasim Industries旗下两个生产单元承载，品牌统一为Raysil®。</div>
 
+    <div class="table-scroll">
     <table>
       <thead>
         <tr>
@@ -186,6 +205,7 @@
         </tr>
       </tfoot>
     </table>
+    </div>
 
     <div class="note-box">
       注：Grasim官网明确披露：粘胶长丝（VFY）总产能48千吨/年，为印度最大粘胶长丝生产商，全球第三。官方Raysil®品牌手册确认生产地点为Shahad（马哈拉施特拉邦）和Veraval（古吉拉特邦）双厂。
@@ -200,6 +220,7 @@
     </div>
     <div class="section-note">粘胶短纤是博拉更大的纤维素纤维主业。印度产能采用Grasim官方口径；海外产能采用Canopy/公开来源口径，因年份与统计边界不同，合计以区间表达。</div>
 
+    <div class="table-scroll">
     <table>
       <thead>
         <tr>
@@ -281,6 +302,7 @@
         </tr>
       </tfoot>
     </table>
+    </div>
 
     <div class="note-box">
       口径说明：Grasim官网披露印度粘胶短纤（CSF）四地合计824千吨/年；Canopy按工厂列示的VSF口径略高，且包含不同年份/产品边界，因此本文用区间表达。无论采用哪一口径，结论一致：粘胶短纤是博拉更大的全球化纤维业务，规模远大于粘胶长丝。
@@ -295,6 +317,7 @@
     </div>
     <div class="section-note">以下为中国粘胶长丝行业分析文章中提及博拉印度产能的描述，供交叉验证。</div>
 
+    <div class="table-scroll">
     <table>
       <thead>
         <tr>
@@ -317,6 +340,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 
   <!-- ============ 表三：全球历史产能对比 ============ -->
@@ -326,6 +350,7 @@
       <span class="badge badge-red">重点：停产关厂</span>
     </div>
 
+    <div class="table-scroll">
     <table>
       <thead>
         <tr>
@@ -380,6 +405,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
 
     <div class="note-box">
       重要区分：博拉集团旗下的印尼PT Indo Bharat Rayon（IBR）和泰国Thai Rayon，均为<b>粘胶短纤维（VSF）</b>生产商，不生产粘胶长丝（VFY）。本页将其纳入“博拉粘胶短纤全球布局”，但不计入“博拉粘胶长丝”产能。博拉的粘胶长丝业务集中于印度Grasim两厂（合计48千吨/年）。
@@ -460,6 +486,7 @@
     </div>
     <div class="section-note">申请方之一即Grasim Industries（博拉集团）。印度于2026年3月19日作出肯定性终裁，对中国75旦以上VFY征收5年反倾销税。</div>
 
+    <div class="table-scroll">
     <table>
       <thead>
         <tr>
@@ -508,6 +535,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
     <div class="note-box">
       排除范围：75旦（不含75旦以上）VFY；采用线轴纺纱技术生产的VFY；税号5401项下绣花线。征税有效期5年。
     </div>
@@ -619,6 +647,7 @@
     <div class="section-title">
       九、核心结论
     </div>
+    <div class="table-scroll">
     <table>
       <thead>
         <tr>
@@ -653,6 +682,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 
   <div style="text-align:center; color:#bbb; font-size:12px; margin-top:24px; padding-bottom:24px;">
